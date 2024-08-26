@@ -1,38 +1,597 @@
-.App {
-  text-align: center;
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App{
+  width: 100%;
+  height: 100vh;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* START HEADER */
+.header{
+  height: 17vh;
+  padding-left: 3%;
+  padding-top: 2%;
+  position: relative;
 }
+.header main{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.header main .logo{
+  height: 50%;
+  width: 5%;
+  display: grid;
+  place-items: center;
+  background-image:url(./assets/shared/logo.svg);
+  background-repeat:no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.header main .line{
+  background-color: gray;
+  position: absolute;
+  width: 42%;
+  left: 10%;
+  height: 1px;
+  z-index: 10;
+}
+.header main .list{
+  width: 50%;
+  height: 100%;
+  backdrop-filter: blur(40px);
+  padding-left: 5%;
+}
+.header main .list ul{
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.header main .list ul li{
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  height: 100%;
+  align-items: center;
+}
+.header main .list ul li:hover{
+  border-bottom: 2px solid white;
+  cursor: pointer;
+}
+.header main .list ul li span:first-child{
+  margin-right: 10%;
+}
+.header main .list ul li:hover{
+  border-bottom: 2px solid white;
+}
+.header main .anchor{
+  display:none;
+}
+.header main .anchor-list{
+  display: none;
+}
+/* END HEADER */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* START HOME-PAGE */
+.home-page{
+  width: 100%;
+  height: 100%;
+  background-image: url(./assets/home/background-home-desktop.jpg);
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+.home-main{
+  width: 70%;
+  height: 50%;
+  margin: 10% auto;
+  display: flex;
+}
+.home-main .data{
   display: flex;
   flex-direction: column;
+  width: 55%;
+  color: white;
+  /* background-color: blue; */
+  padding-top: 2%;
+}
+.home-main .data .txt1{
+  font-size: 0.9rem;
+  letter-spacing: 5px;
+  font-weight: 300;
+}
+.home-main .data .txt2{
+  font-size: 6rem;
+  margin: 4% 0;
+  letter-spacing: 10px;
+}
+.home-main .data .txt3{
+  font-size: 0.8rem;
+  font-weight: 100;
+  width: 76%;
+  line-height: 20px;
+}
+.home-main .explore-holder{
+  width: 50%;
+  display: grid;
+  place-items: center;
+  /* background-color: aqua; */
+}
+.home-main .explore-holder .explore{
+  background-color: rgb(236, 234, 234);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+/* END HOME PAGE */
+
+/* START DESTINATION PAGE */
+.destination{
+  width: 100%;
+  background-image: url(./assets/destination/background-destination-desktop.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.destination .pick{
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  width: 25%;
+  height: 15vh;
+  /* background-color: blueviolet; */
+  margin-left: 15vh;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.destination .pick div:last-child{
+  font-size: 1.5em;
+}
+.destination .container{
+  /* border: 5px solid white; */
+  display: flex;
+  justify-content: space-between;
+  color:  white;  
+  width: 70%;
+  height: 80vh;
+  margin: 0 auto;
+
+}
+.destination .container main{
+  width: 45%;
+}
+.destination .container .planet{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.mars{
+  background-image: url(./assets/destination/image-mars.png);
+}
+.europa{
+  background-image: url(./assets/destination/image-europa.png);
+}
+.moon{
+  background-image: url(./assets/destination/image-moon.png);
+}
+.titan{
+  background-image: url(./assets/destination/image-titan.png);
+}
+.destination .container .data .list{
+  width:60%;
+  height: 15%;
+  display: flex;
+  align-items: center;
+}
+.destination .container .data .list ul{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  list-style: none;
+}
+.destination .container .data .list ul li{
+  border-bottom: 2px solid transparent;
+}
+.destination .container .data .list ul li:hover{
+  border-bottom: 2px solid white;
+  cursor: pointer;
+}
+.destination .container .data .planet-info{
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 60%;
+  border-bottom: 1px solid gray;
+}
+.destination .container .data .planet-info .txt1{
+  font-size: 6rem;
+}
+.destination .container .data .planet-info .txt2{
+  font-size: 1rem;
+}
+.destination .container .data .facts{
+  display: flex;
+  height: 25%;
+  /* background-color: red; */
+  align-items: center;
+
+}
+.destination .container .data .facts .distance,.time{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* END DESTINATION PAGE */
+
+/* START CREW PAGE */
+.crew{
+  width: 100%;
+  height: 100%;
+  background-image: url(./assets/crew/background-crew-desktop.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.crew .container{
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 83vh;
+}
+.crew .container .title{
+  display: flex;
+  justify-content: space-between;
+  width: 22%;
+}
+.crew .container .title span{
+  font-size: 1.5rem;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.crew .container .sub-container{
+  display: flex;
+  height: 80%;
+  margin: auto 0;
+}
+.crew .container .sub-container main{
+  width: 50%;
+}
+.crew .container .sub-container .data{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 70vh;
+}
+.crew .container .sub-container .data .info{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+}
+.crew .container .sub-container .data .info .txt1{
+  font-size: 1.5rem;
+  color: gray;
+}
+.crew .container .sub-container .data .info .txt2{
+  font-size: 4rem;
+  margin: 2% 0;
+}
+.crew .container .sub-container .data .info .txt3{
+  font-size: 1rem;
+  font-weight: 100;
+}
+.crew .container .sub-container .data .selector{
+  display: flex;
+  justify-content: space-around;
+  /* background-color: aqua; */
+  width: 50%;
+}
+.crew .container .sub-container .data .selector div{
+  background-color: gray;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.crew .container .sub-container .data .selector div:hover{
+  cursor: pointer;
+  transition: .2s;
+  transform: scale(1.5);
+}
+.crew .container .sub-container .character{
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.douglas{
+  background-image: url(./assets/crew/image-douglas-hurley.png);
+}
+.mark{
+  background-image: url(./assets/crew/image-mark-shuttleworth.png);
+}
+.victor{
+  background-image: url(./assets/crew/image-victor-glover.png);
+}
+.ansari{
+  background-image: url(./assets/crew/image-anousheh-ansari.png);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* END CREW PAGE */
+
+@media(max-width: 768px) and (min-width: 400px){
+  /* START HEADER */
+  .header main .line{
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+  .header main .logo{
+    width: 10%;
   }
+  .header main .list{
+    width: 90%;
+  }
+  /* END HEADER */
+  /* START HOME PAGE */
+  .home-page{
+    background-image: url(./assets/home/background-home-tablet.jpg);
+  }
+  .home-main{
+    width: 80%;
+    /* background-color: aqua; */
+  }
+  .home-main .explore-holder{
+    display: flex;
+    justify-content: end;
+  }
+  /* END HOME PAGE */
+}
+
+@media(max-width:384px){
+  
+  /* START HEADER */
+
+  .header main .line{
+    display: none;
+  }
+  .header main .logo{
+    width: 10%;
+  }
+  .header main .list{
+    display: none;
+  }
+  .header main .anchor{
+    height: 25%;
+    width: 10%;
+    background-image: url(./assets/shared/icon-hamburger.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-right: 3%;
+  }
+  .header main .anchor-list{
+    backdrop-filter: blur(50px);
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+    transition: 0.5s;
+    display: block;
+  }
+  .header main .anchor-list .x-holder{
+    /* background-color: red; */
+    height: 15%;
+    margin-right: 5%;
+    position: relative;
+  }
+  .header main .anchor-list .x{
+    position: absolute;
+    right: 0;
+    top: 10px;
+    background-image: url(./assets/shared/icon-close.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 10%;
+    height: 30%;
+  }
+  .header main .anchor-list ul{
+    color: white;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 25%;
+    padding: 5%;
+  }
+  .header main .anchor-list ul li span:first-child{
+    margin-right: 3%;
+  }
+
+  /* END HEADER */
+  
+  /* START HOME-PAGE */
+  .home-page{
+    background-image: url(./assets/home/background-home-mobile.jpg);
+    background-size: cover;
+    position: relative;
+  }
+  .home-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 55%;
+  }
+  .home-main .data{
+    text-align: center;
+    width: 100%;
+  }
+  .home-main .data .txt1{
+    letter-spacing: 0;
+  }
+  .home-main .data .txt2{
+    font-size: 3rem;
+  }
+  .home-main .data .txt3{
+    text-align: justify;
+    text-align: center;
+    width: 100%;
+  }
+  .home-main .explore-holder{
+    width: 100%;
+  }
+  .home-main .explore-holder .explore{
+    width: 150px;
+    height: 150px;
+  }
+  /* END HOME PAGE */
+
+  /* START DESTINATION PAGE */
+  .destination{
+    background-image: url(./assets/destination/background-destination-mobile.jpg);
+    background-size: cover;
+  }
+  .destination .pick{
+    justify-content:center;
+    width: 100%;
+    height: 15vh;
+    /* background-color: blueviolet; */
+    margin-left: 0;
+    text-align: center; 
+  }
+  .destination .pick div:last-child{
+    font-size: 1.5em;
+    margin-left: 3%;
+  }
+  .destination .container{
+    flex-direction: column;
+    justify-content: space-between;
+    color:  white;  
+    width: 100%;
+    height: 80vh;
+    margin: 0;
+  
+  }
+  .destination .container main{
+    width: 100%;
+  }
+  .destination .container .planet{
+    background-size: contain;
+    height: 40vh;
+  }
+  
+  .destination .container .data .list{
+    width:100%;
+    /* background-color: red; */
+    height: 20%;
+  }
+  .destination .container .data .list ul{
+    justify-content: space-around;
+  }
+  .destination .container .data .planet-info{
+    height: 30vh;
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+    /* background-color: red; */
+  }
+  .destination .container .data .planet-info .txt1{
+    font-size: 4rem;
+  }
+  .destination .container .data .planet-info .txt2{
+    font-size: 1rem;
+  }
+  .destination .container .data .facts{
+    flex-direction: column;
+    justify-content: space-around;
+    height: 25vh;
+    text-align: center;
+    background-image: url(./assets/destination/background-destination-mobile.jpg);
+    background-position: bottom;
+  }
+  .destination .container .data .facts .distance,.time{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  /* EMD DESTINATIO PAGE */
+
+  /* START CREW PAGE */
+.crew{
+  background-image: url(./assets/crew/background-crew-mobile.jpg);
+  background-size: cover;
+  height: 125vh;
+}
+.crew .container .title{
+  width: 45%;
+}
+.crew .container .title span{
+  font-size: 0.8rem;
+  color: white;
+}
+.crew .container .sub-container{
+  flex-direction: column;
+  height: 100vh;
+  margin: auto 0;
+}
+.crew .container .sub-container main{
+  width: 100%;
+}
+.crew .container .sub-container .data{
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.crew .container .sub-container .data .info{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+}
+.crew .container .sub-container .data .info .txt1{
+  font-size: 1rem;
+
+}
+.crew .container .sub-container .data .info .txt2{
+  font-size: 2.2rem;
+  margin: 3% 0;
+}
+.crew .container .sub-container .data .info .txt3{
+  font-size: .75rem;
+}
+.crew .container .sub-container .data .selector{
+  width: 50%;
+  margin: 0% auto;
+  padding: 10% 0;
+}
+
+.crew .container .sub-container .character{
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 60vh;
+}
+.douglas{
+  background-image: url(./assets/crew/image-douglas-hurley.png);
+}
+.mark{
+  background-image: url(./assets/crew/image-mark-shuttleworth.png);
+}
+.victor{
+  background-image: url(./assets/crew/image-victor-glover.png);
+}
+.ansari{
+  background-image: url(./assets/crew/image-anousheh-ansari.png);
+}
+
+/* END CREW PAGE */
 }
