@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 
 function Destination_page() {
     const location = useLocation();
-    const { selectedDestination } = location.state || {};
+    // const { selectedDestination } = location.state || {};
     
     const [planet, setPlanet] = useState('planet moon');
     const [title, setTitle] = useState('MOON');
@@ -52,11 +52,11 @@ function Destination_page() {
         }
     };
 
-    useEffect(() => {
-        if (selectedDestination) {
-            updatePlanetData(selectedDestination);
-        }
-    }, [selectedDestination]);
+    // useEffect(() => {
+    //     if (selectedDestination) {
+    //         updatePlanetData(selectedDestination);
+    //     }
+    // }, [selectedDestination]);
 
     return (
         <div className="destination">
