@@ -6,11 +6,11 @@ function Destination_page() {
     const location = useLocation();
     const { selectedDestination } = location.state || {};
     
-    const [planet, setPlanet] = useState('');
-    const [title, setTitle] = useState('');
-    const [info, setInfo] = useState('');
-    const [time, setTime] = useState('');
-    const [distance, setDistance] = useState('');
+    const [planet, setPlanet] = useState('planet moon');
+    const [title, setTitle] = useState('MOON');
+    const [info, setInfo] = useState('See our closest celestial body up close, a destination full of craters and mystery.');
+    const [time, setTime] = useState('3 DAYS');
+    const [distance, setDistance] = useState('384,400 KILOMETERS');
 
     const updatePlanetData = (destination) => {
         switch (destination) {
