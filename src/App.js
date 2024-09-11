@@ -8,11 +8,10 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Routes basename="/Space-Tourism">
+        <Routes>
             <Route path='/' element={<HomePage/>}/>
             <Route path='/Destination' element={<DestinationPage/>}/>
             <Route path='/Crew' element={<CrewPage/>}/>
-
         </Routes>
       </Router>
     </div>
