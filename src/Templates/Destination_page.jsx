@@ -1,12 +1,62 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../Components/Header";
+import { useLocation } from 'react-router-dom';
 
 function Destination_page() {
-    const [planet, setPlanet] = useState('planet mars');
-    const [title, setTitle] = useState('MARS');
-    const info = useState('Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, the tallest planetary mountain in our solar system.');
-    const [time, setTime] = useState('9 MONTHS');
-    const [distance, setDistance] = useState('225 KILOMETERS');
+    const location = useLocation();
+    const { selectedDestination } = location.state || {};
+    
+    const [planet, setPlanet] = useState('');
+    const [title, setTitle] = useState('');
+    const [info, setInfo] = useState('');
+    const [time, setTime] = useState('');
+    const [distance, setDistance] = useState('');
+
+    const updatePlanetData = (destination) => {
+        switch (destination) {
+            case 'Moon':
+                setTitle('MOON');
+                setPlanet('planet moon');
+                setInfo('See our closest celestial body up close, a destination full of craters and mystery.');
+                setTime('3 DAYS');
+                setDistance('384,400 KILOMETERS');
+                break;
+            case 'Mars':
+                setTitle('MARS');
+                setPlanet('planet mars');
+                setInfo('Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, the tallest planetary mountain in our solar system.');
+                setTime('9 MONTHS');
+                setDistance('225 MILLION KILOMETERS');
+                break;
+            case 'Europa':
+                setTitle('EUROPA');
+                setPlanet('planet europa');
+                setInfo('A frozen moon of Jupiter, potentially hiding a vast ocean beneath its icy surface.');
+                setTime('3 YEARS');
+                setDistance('628 MILLION KILOMETERS');
+                break;
+            case 'Titan':
+                setTitle('TITAN');
+                setPlanet('planet titan');
+                setInfo('Saturn’s largest moon, rich in hydrocarbons and lakes of liquid methane.');
+                setTime('7 YEARS');
+                setDistance('1.2 BILLION KILOMETERS');
+                break;
+            default:
+                setTitle('MARS');
+                setPlanet('planet mars');
+                setInfo('Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, the tallest planetary mountain in our solar system.');
+                setTime('9 MONTHS');
+                setDistance('225 MILLION KILOMETERS');
+                break;
+        }
+    };
+
+    useEffect(() => {
+        if (selectedDestination) {
+            updatePlanetData(selectedDestination);
+        }
+    }, [selectedDestination]);
 
     return (
         <div className="destination">
@@ -16,37 +66,16 @@ function Destination_page() {
                 <div>PICK YOUR DESTINATION</div>
             </div>
             <div className="container">
-                <main 
-                    className={planet} 
-                >
+                <main className={planet}>
+                    {/* You could add more imagery or planet-specific content here */}
                 </main>
                 <main className="data">
                     <div className="list">
                         <ul>
-                            <li onClick={() => {
-                                setTitle('MOON');
-                                setTime('3 DAYS');
-                                setDistance('384,400 KILOMETERS');
-                                setPlanet('planet moon');
-                            }}>Moon</li>
-                            <li onClick={() => {
-                                setTitle('MARS');
-                                setTime('9 MONTHS');
-                                setDistance('225 MILLION KILOMETERS');
-                                setPlanet('planet mars');
-                            }}>Mars</li>
-                            <li onClick={() => {
-                                setTitle('EUROPA');
-                                setTime('3 YEARS');
-                                setDistance('628 MILLION KILOMETERS');
-                                setPlanet('planet europa');
-                            }}>Europa</li>
-                            <li onClick={() => {
-                                setTitle('TITAN');
-                                setTime('7 YEARS');
-                                setDistance('1.2 BILLION KILOMETERS');
-                                setPlanet('planet titan');
-                            }}>Titan</li>
+                            <li onClick={() => updatePlanetData('Moon')}>Moon</li>
+                            <li onClick={() => updatePlanetData('Mars')}>Mars</li>
+                            <li onClick={() => updatePlanetData('Europa')}>Europa</li>
+                            <li onClick={() => updatePlanetData('Titan')}>Titan</li>
                         </ul>
                     </div>
 

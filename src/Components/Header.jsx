@@ -65,11 +65,6 @@ function Header() {
                             <span>02</span>
                             <span>Crew</span>
                         </li>
-
-                        <li className="list-technology" onClick={() => navigate('/Technology')}>
-                            <span>03</span>
-                            <span>Technology</span>
-                        </li>
                     </ul>
                 </div>
             </main>
